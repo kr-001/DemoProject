@@ -1,5 +1,8 @@
 Django Intern Assignment
+
 API EndPoints in the project:
+
+
 1.Work Api
 ```
 def work(request):
