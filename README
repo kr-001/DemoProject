@@ -1,12 +1,12 @@
 Django Intern Assignment
 API EndPoints in the project:
 1.Work Api
-
-```def work(request):
+```
+def work(request):
    works = Work.objects.order_by().values('work_type').distinct()
    payload = {'works' : works}
-   return render(request , 'allWorks.html' , payload)```
-
+   return render(request , 'allWorks.html' , payload)
+```
 Explaination:
 "work" API  retrieves a list of distinct work types from the Work model in the Django app and renders them in an HTML template called allWorks.html.
 The Work object is a model in the Django app that represents a work. The order_by() method is used to order the retrieved Work objects in ascending order by default, which is equivalent to ordering by their primary key. The values() method is then used to retrieve only the work_type attribute of each Work object, which is the type of work. Finally, the distinct() method is used to ensure that only unique work types are returned in the works variable.
