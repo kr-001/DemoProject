@@ -1,0 +1,64 @@
+Django Intern Assignment
+API EndPoints in the project:
+1.Work Api
+```
+def work(request):
+   works = Work.objects.order_by().values('work_type').distinct()
+   payload = {'works' : works}
+   return render(request , 'allWorks.html' , payload)
+```
+Explaination:
+"work" API  retrieves a list of distinct work types from the Work model in the Django app and renders them in an HTML template called allWorks.html.
+The Work object is a model in the Django app that represents a work. The order_by() method is used to order the retrieved Work objects in ascending order by default, which is equivalent to ordering by their primary key. The values() method is then used to retrieve only the work_type attribute of each Work object, which is the type of work. Finally, the distinct() method is used to ensure that only unique work types are returned in the works variable.
+The payload dictionary is then created to store the list of work types, which will be used to display them on the template.
+Finally, the render() function is called with the request object, the name of the HTML template (allWorks.html), and the payload dictionary as parameters. This function returns an HTTP response that renders the template with the provided payload data.
+Overall, this API provides a way to retrieve a list of distinct work types from the Work model in the Django app and display them on a web page. This could be useful, for example, in a dropdown menu for filtering works by type.
+
+2. Filter data by work type.
+```
+def work_by_type(request,work_type):
+   works = Work.objects.filter(work_type = work_type)
+   print(works)
+   payload = {'works' : works , 'work_type' : work_type}
+   return render(request , 'workType.html',payload)
+
+```
+Explaination: 
+This "work_by_type"  API  takes a GET request with a work_type parameter and returns a filtered list of works of that type.
+The Work object is a model in the Django app, and the filter() method is used to retrieve all objects of Work type that match the provided work_type parameter. The resulting list of works is stored in the works variable.
+The payload dictionary is then created to store the list of works and the work_type parameter, which will be used to display the correct work type on the template.
+Finally, the render() function is called with the request object, the name of the HTML template (workType.html), and the payload dictionary as parameters. This function returns an HTTP response that renders the template with the provided payload data.
+Overall, this API provides a simple way to retrieve and display works of a specific type on a web page.
+
+3. Search By Artist Name API
+```
+def search(request):
+      query = request.GET.get('query')
+      data = Artist.objects.filter(name__icontains=query)
+      return render(request , 'search.html' , {'query' : query , 'data' : data})
+```
+Explaination:
+'search' api  performs a search on the Artist model in the Django app based on a query parameter that is passed in a GET request. It then renders an HTML template called search.html with the search results and the original query that was searched for.
+The query variable is retrieved from the GET request using the GET.get() method, which retrieves the value of the query parameter. This parameter is usually entered by the user in a search box on the website.
+The Artist object is a model in the Django app that represents an artist. The filter() method is used to retrieve all Artist objects that have a name attribute containing the query string, ignoring case sensitivity.
+The render() function is then called with the request object, the name of the HTML template (search.html), and a dictionary that contains the original search query (query) and the search results (data) as parameters. This function returns an HTTP response that renders the template with the provided data.
+Overall, this API provides a way to search for artists in the Artist model based on a query parameter and display the results on a web page. This could be useful for creating a search functionality on a website that has a list of artists.
+
+For Admin Login use:
+ username:admin
+ password:Admin@198
+ 
+ 
+ 
+ THANK YOU!!
+
+
+
+
+
+
+
+
+
+
+
