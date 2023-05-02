@@ -1,0 +1,28 @@
+{%extends "base.html"%}
+{%block title%}Search Results{%endblock%}
+{%block body%}
+
+<div class="container" >
+    <div class="row">
+        <div class="col-6">
+            {% if query %}
+            <h3>You Searched For {{query}}</h3>
+            <hr>
+            {%for obj in data%}
+            <ul>
+                <h4>Name: </h4><p>{{obj.name}}</p>
+                {%for w in obj.work.all%}
+                <h4>Link: </h4><p>{{w.link}}</p>
+                <h4>Work Type:  </h4><p>{{w.get_work_type_display}}</p>
+                {%endfor%}
+            </ul>
+            {%endfor%}
+            {%else%}
+            <h1>No Results!!</h1>
+            {%endif%}
+        </div>
+    </div>
+    
+</div>
+
+{%endblock%}

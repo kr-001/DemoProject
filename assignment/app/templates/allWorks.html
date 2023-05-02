@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+{%block title%}All Works{%endblock%}
+{%block body%}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Works</h1>
+      <p>Click on any link to filtering by Work Type</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    <ul>
+      {% for key in works %}
+        <li><h3><a href="{{key.work_type}}">{{key.work_type}}</a></h3></li>
+      {% empty %}
+        <li>No works found.</li>
+      {% endfor %}
+    </ul>
+    </div>
+    <p><ul>
+      <li>YT : Youtube</li>
+      <li>IG : Instagram</li>
+      <li>OT : Others</li>
+    </ul></p>
+  </div>
+</div>
+{%endblock%}

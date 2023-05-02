@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{%block title%}HomePage{%endblock%}
+{%block body%}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Works By Types : {{work_type}}</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>Link : </h3>
+                {%for work in works %}
+                
+                <li>{{work.link}}</li>
+                {%empty%}
+                <h4>No Works found</h4>
+                {%endfor%}
+        </div>
+    </div>
+</div>
+{%endblock%}

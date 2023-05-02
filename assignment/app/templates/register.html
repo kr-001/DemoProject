@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{%block title%}User Registration{%endblock%}
+{%block body%}
+
+<div class="container mt-2">
+    <div class="row-cols-2">
+       <h1 class="registerHeading">User Registration</h1>
+       
+       <form class="row g-3" method="POST" action="register">
+        {% csrf_token %}
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email">
+          </div>
+          <div class="col-md-6">
+              <label for="inputPassword4" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="username">
+            </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="password" class="form-control" id="pass1" name="pass1">
+          </div>
+          <div class="col-md-6">
+              <label for="inputPassword4" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="pass2" name="pass2">
+  
+          </div>
+          <div class="col-12 mt-2">
+            <button type="submit" class="btn btn-primary" onclick="fun()">Create Account</button>
+          </div>
+        </form>
+    </div>
+   
+</div>
+<script>
+  function fun(){
+    alert("User and Client created successfully! Click On Admin button to See Client and all other Tables")
+  }
+</script>
+{%endblock%}

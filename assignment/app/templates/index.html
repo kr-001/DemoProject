@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{%block title%}HomePage{%endblock%}
+{%block body%}
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            <h1>API Endpoints</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row m-1">
+        <div class="col m-1">
+            <a class="btn btn-primary" href="/works" role="button">Works</a>
+        </div>
+    </div>
+    <div class="row m-1">
+        <div class="col m-1">
+            <a class="btn btn-primary" href="register" role="button">Register a user</a>
+        </div>
+    </div>
+    <div class="row m-1">
+        <div class="col m-1">
+            <a class="btn btn-primary" href="admin" role="button">Admin</a>
+        </div>
+    </div>
+    
+</div>
+
+{%endblock%}
